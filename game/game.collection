@@ -1,0 +1,552 @@
+name: "game"
+instances {
+  id: "player"
+  prototype: "/game/player.go"
+  position {
+    x: 320.0
+    y: 800.0
+    z: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 0.5
+  }
+}
+scale_along_z: 0
+embedded_instances {
+  id: "section1"
+  data: "embedded_components {\n"
+  "  id: \"ground\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Ground_A\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 609.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_A-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -240.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_A-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -278.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_A-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 268.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_A-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 235.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 320.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "game"
+  data: "components {\n"
+  "  id: \"game\"\n"
+  "  component: \"/game/game.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"game1\"\n"
+  "  component: \"/game/game.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "section2"
+  data: "embedded_components {\n"
+  "  id: \"ground\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Ground_B\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 609.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_B-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -278.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_B-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 268.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_B-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -240.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_B-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 235.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 320.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "section3"
+  data: "embedded_components {\n"
+  "  id: \"ground\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Ground_A\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 609.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_A-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -278.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_A-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 268.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_A-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -240.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_A-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 235.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 320.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "section4"
+  data: "embedded_components {\n"
+  "  id: \"ground\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Ground_B\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 609.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_B-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -278.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"tree-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Trees_B-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 268.0\n"
+  "    y: 609.0\n"
+  "    z: 1.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-left\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_B-left\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: -240.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"treeshadow-right\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"tile_set: \\\"/assets/game.atlas\\\"\\n"
+  "default_animation: \\\"Shadow_trees_B-right\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ALPHA\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 235.0\n"
+  "    y: 609.0\n"
+  "    z: 0.5\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 320.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}

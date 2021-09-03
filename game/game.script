@@ -1,0 +1,46 @@
+local SECTION_HEIGHT = 609
+local SPEED = 300
+
+
+
+function init(self)
+
+	
+	local display_height = tonumber(sys.get_config("display.height"))
+
+
+	local sections = {
+		hash("/section4"),
+		hash("/section3"),
+		hash("/section2"),
+		hash("/section1"),
+	}
+	
+	local animate_section = nil
+
+	animate_section = function(id)
+		local to = display_height
+		local distance = to - go.get_position(id).y
+		local duration = distance / SPEED
+		go.animate(id, "position.y", go.PLAYBACK_ONCE_FORWARD, to, go.EASING_LINEAR, duration, 0, function()
+			table.remove(sections, 1)
+
+			-- position just below the bottom one
+			local last = sections[#sections]
+				local pos = go.get_position(last)
+			pos.y = pos.y - SECTION_HEIGHT
+			go.set_position(pos, id)
+
+			table.insert(sections, id)
+			animate_section(id)
+		end)
+	end
+
+	for i=1,#sections do
+		local id = sections[i]
+		local pos = go.get_position(id)
+		pos.y = display_height - SECTION_HEIGHT * i
+		go.set_position(pos, id)
+		animate_section(id)
+	end
+end
