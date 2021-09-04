@@ -1,20 +1,22 @@
-local function freeze()
+go.property("eat_animation", hash("idle"))
+
+local function freeze(self)
 	msg.post("#collisionobject", "disable")
 	rive.play_anim("#rivemodel", "Jelly", go.PLAYBACK_ONCE_FORWARD)
 end
 
-local function eat()
+local function eat(self)
 	msg.post("#collisionobject", "disable")
-	rive.play_anim("#rivemodel", "Death", go.PLAYBACK_ONCE_FORWARD)
+	rive.play_anim("#rivemodel", self.eat_animation, go.PLAYBACK_ONCE_FORWARD)
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("collision_response") then
 		if message.other_group == hash("bullet") then
-			freeze()
+			freeze(self)
 			go.delete(message.other_id)
 		elseif message.other_group == hash("player") then
-			eat()
+			eat(self)
 		end
 	end
 end

@@ -4,6 +4,12 @@ local SPEED = 300
 local DW = tonumber(sys.get_config("display.width"))
 local DH = tonumber(sys.get_config("display.height"))
 
+local FLOWERS = { "factories#flower1", "factories#flower2" }
+
+local function random_from_table(t)
+	return t[math.random(1, #t)]
+end
+
 local function animate(id, to, speed, playback, cb)
 	assert(id)
 	assert(to)
@@ -26,7 +32,7 @@ end
 local function spawn_flower()
 	local x = (DW / 2) + math.random(-DW/2, DW/2) * 0.5
 	local pos = vmath.vector3(x, -100, 0.1)
-	local id = factory.create("factories#flower1", pos)
+	local id = factory.create(random_from_table(FLOWERS), pos)
 	local to = DH + 100
 	animate_once(id, to, SPEED, function()
 		go.delete(id)

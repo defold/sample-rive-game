@@ -14,7 +14,7 @@ components {
   }
   properties {
     id: "eat_animation"
-    value: "Death"
+    value: "Explosion"
     type: PROPERTY_TYPE_HASH
   }
 }
@@ -34,7 +34,7 @@ embedded_components {
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
   "      x: 0.0\n"
-  "      y: -100.0\n"
+  "      y: -20.0\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -46,7 +46,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 1\n"
   "  }\n"
-  "  data: 60.0\n"
+  "  data: 35.0\n"
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
@@ -68,7 +68,7 @@ embedded_components {
 embedded_components {
   id: "rivemodel"
   type: "rivemodel"
-  data: "scene: \"/assets/flower2.rivescene\"\n"
+  data: "scene: \"/assets/flower1.rivescene\"\n"
   "default_animation: \"idle\"\n"
   "material: \"/defold-rive/assets/rivemodel.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"

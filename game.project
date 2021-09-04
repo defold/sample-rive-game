@@ -18,7 +18,6 @@ height = 1136
 
 [physics]
 scale = 0.02
-debug = 1
 
 [graphics]
 default_texture_min_filter = linear
