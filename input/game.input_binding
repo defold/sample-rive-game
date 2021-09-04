@@ -10,6 +10,10 @@ key_trigger {
   input: KEY_SPACE
   action: "shoot"
 }
+key_trigger {
+  input: KEY_TAB
+  action: "profiler"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_1
   action: "touch"

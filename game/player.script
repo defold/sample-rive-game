@@ -4,6 +4,7 @@ local LEFT = hash("left")
 local RIGHT = hash("right")
 local TOUCH = hash("touch")
 local SHOOT = hash("shoot")
+local PROFILER = hash("profiler")
 
 local MODEL = "#rivemodel"
 
@@ -46,7 +47,10 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("collision_response") then
 		if message.other_group == hash("flower") then
-			go.delete()
+			msg.post(".", "disable")
+			timer.delay(2, false, function()
+				sys.reboot()
+			end)
 		end
 	end
 end
@@ -59,6 +63,10 @@ function on_input(self, action_id, action)
 	elseif action_id == SHOOT then
 		if action.released then
 			shoot()
+		end
+	elseif action_id == PROFILER then
+		if action.released then
+			msg.post("@system:", "toggle_profile")
 		end
 	elseif action_id == TOUCH then
 		local action_pos = vmath.vector3(action.x, action.y, 0)
