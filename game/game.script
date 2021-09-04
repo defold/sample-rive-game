@@ -1,46 +1,58 @@
 local SECTION_HEIGHT = 609
 local SPEED = 300
 
+local DW = tonumber(sys.get_config("display.width"))
+local DH = tonumber(sys.get_config("display.height"))
 
+local function animate(id, to, speed, playback, cb)
+	assert(id)
+	assert(to)
+	assert(speed)
+	assert(playback)
+	local pos = go.get_position(id)
+	local distance = to - pos.y
+	local duration = distance / speed
+	go.animate(id, "position.y", playback, to, go.EASING_LINEAR, duration, 0, cb)
+end
 
+local function animate_once(id, to, speed, cb)
+	animate(id, to, speed, go.PLAYBACK_ONCE_FORWARD, cb)
+end
+
+local function animate_loop(id, to, speed, cb)
+	animate(id, to, speed, go.PLAYBACK_LOOP_FORWARD, cb)
+end
+
+local function spawn_flower()
+	local x = (DW / 2) + math.random(-DW/2, DW/2) * 0.5
+	local pos = vmath.vector3(x, -100, 0.1)
+	local id = factory.create("factories#flower1", pos)
+	local to = DH + 100
+	animate_once(id, to, SPEED, function()
+		go.delete(id)
+	end)
+end
+
+local start_spawn_timer
+start_spawn_timer = function()
+	timer.delay(math.random(3,5), false, function()
+		spawn_flower()
+		start_spawn_timer()
+	end)
+end
 function init(self)
-
+	math.randomseed(socket.gettime()) math.random() math.random()
 	
-	local display_height = tonumber(sys.get_config("display.height"))
-
-
-	local sections = {
-		hash("/section4"),
-		hash("/section3"),
-		hash("/section2"),
-		hash("/section1"),
-	}
-	
-	local animate_section = nil
-
-	animate_section = function(id)
-		local to = display_height
-		local distance = to - go.get_position(id).y
-		local duration = distance / SPEED
-		go.animate(id, "position.y", go.PLAYBACK_ONCE_FORWARD, to, go.EASING_LINEAR, duration, 0, function()
-			table.remove(sections, 1)
-
-			-- position just below the bottom one
-			local last = sections[#sections]
-				local pos = go.get_position(last)
-			pos.y = pos.y - SECTION_HEIGHT
-			go.set_position(pos, id)
-
-			table.insert(sections, id)
-			animate_section(id)
-		end)
-	end
-
-	for i=1,#sections do
-		local id = sections[i]
+	-- position sections and start moving them
+	for i=1,5 do
+		local id = "/section" .. i
 		local pos = go.get_position(id)
-		pos.y = display_height - SECTION_HEIGHT * i
+		pos.y = DH - SECTION_HEIGHT * i
 		go.set_position(pos, id)
-		animate_section(id)
+
+		local to = pos.y + SECTION_HEIGHT * 2
+		animate_loop(id, to, SPEED)
 	end
+
+	start_spawn_timer()
 end

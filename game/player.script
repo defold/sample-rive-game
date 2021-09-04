@@ -3,17 +3,33 @@ go.property("speed", 200)
 local LEFT = hash("left")
 local RIGHT = hash("right")
 local TOUCH = hash("touch")
+local SHOOT = hash("shoot")
 
+local MODEL = "#rivemodel"
+
+
+local function run()
+	rive.play_anim(MODEL, "Run", go.PLAYBACK_LOOP_FORWARD)
+end
+
+local function shoot()
+	--local weapon = rive.get_go(MODEL, "Weapon")
+	print(weapon)
+	local p = go.get_world_position(weapon)
+	local bullet = factory.create("factories#bullet", p)
+	go.animate(bullet, "position.y", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_LINEAR, 0.7, 0, function()
+		go.delete(bullet)
+	end)
+
+	rive.play_anim(MODEL, "FIre", go.PLAYBACK_ONCE_FORWARD, {}, function(self, message_id, message, sender)
+		run()
+	end)
+end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.input = vmath.vector3()
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	run()
 end
 
 function update(self, dt)
@@ -28,22 +44,31 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
+	if message_id == hash("collision_response") then
+		if message.other_group == hash("flower") then
+			go.delete()
+		end
+	end
 end
 
 function on_input(self, action_id, action)
 	if action_id == LEFT then
-		print(action.value)
 		self.input.x = -action.value
 	elseif action_id == RIGHT then
 		self.input.x = action.value
+	elseif action_id == SHOOT then
+		if action.released then
+			shoot()
+		end
 	elseif action_id == TOUCH then
 		local action_pos = vmath.vector3(action.x, action.y, 0)
 		if action.pressed then
 			self.pressed_pos = action_pos
+			self.pressed_time = socket.gettime()
 		elseif action.released then
+			if socket.gettime() - self.pressed_time < 0.3 then
+				shoot()
+			end
 			self.pressed_pos = nil
 			self.input.x = 0
 		elseif self.pressed_pos then

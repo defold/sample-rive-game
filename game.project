@@ -18,11 +18,12 @@ height = 1136
 
 [physics]
 scale = 0.02
-debug = 0
+debug = 1
 
 [graphics]
 default_texture_min_filter = linear
 default_texture_mag_filter = linear
+max_draw_calls = 8000
 
 [script]
 shared_state = 1

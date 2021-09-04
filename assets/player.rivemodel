@@ -1,4 +1,0 @@
-scene: "/assets/player.rivescene"
-default_animation: "Run"
-material: "/defold-rive/assets/rivemodel.material"
-blend_mode: BLEND_MODE_ALPHA

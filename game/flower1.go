@@ -1,6 +1,6 @@
 components {
-  id: "player"
-  component: "/game/player.script"
+  id: "flower"
+  component: "/game/flower.script"
   position {
     x: 0.0
     y: 0.0
@@ -21,14 +21,15 @@ embedded_components {
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
-  "group: \"player\"\n"
-  "mask: \"flower\"\n"
+  "group: \"flower\"\n"
+  "mask: \"player\"\n"
+  "mask: \"bullet\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
-  "      x: 0.0\n"
-  "      y: 0.0\n"
+  "      x: -2.0\n"
+  "      y: 1.0\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -40,7 +41,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 1\n"
   "  }\n"
-  "  data: 50.0\n"
+  "  data: 40.0\n"
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
@@ -62,8 +63,8 @@ embedded_components {
 embedded_components {
   id: "rivemodel"
   type: "rivemodel"
-  data: "scene: \"/assets/player.rivescene\"\n"
-  "default_animation: \"Run\"\n"
+  data: "scene: \"/assets/flower1.rivescene\"\n"
+  "default_animation: \"idle\"\n"
   "material: \"/defold-rive/assets/rivemodel.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
