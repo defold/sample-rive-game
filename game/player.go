@@ -66,6 +66,7 @@ embedded_components {
   "default_animation: \"Run\"\n"
   "material: \"/defold-rive/assets/rivemodel.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
+  "default_state_machine: \"\"\n"
   ""
   position {
     x: 0.0

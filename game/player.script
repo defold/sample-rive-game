@@ -8,40 +8,36 @@ local PROFILER = hash("profiler")
 
 local MODEL = "#rivemodel"
 
-
-local function run()
-	rive.play_anim(MODEL, "Run", go.PLAYBACK_LOOP_FORWARD)
-end
-
-local function shoot()
-	--local weapon = rive.get_go(MODEL, "Weapon")
-	print(weapon)
-	local p = go.get_world_position(weapon)
+local function shoot(self)
+	local p = go.get_world_position(weapon) - vmath.vector3(10, 0, 0)
 	local bullet = factory.create("factories#bullet", p)
-	go.animate(bullet, "position.y", go.PLAYBACK_ONCE_FORWARD, -100, go.EASING_LINEAR, 0.7, 0, function()
+
+	local q = vmath.quat_rotation_z(math.rad((self.angle - 45) * 0.5))
+	local v = vmath.rotate(q, vmath.vector3(0, 1000, 0))
+	local to = p - v
+
+	go.animate(bullet, "position", go.PLAYBACK_ONCE_FORWARD, to, go.EASING_LINEAR, 0.7, 0, function()
 		go.delete(bullet)
 	end)
 
-	rive.play_anim(MODEL, "FIre", go.PLAYBACK_ONCE_FORWARD, {}, function(self, message_id, message, sender)
-		run()
-	end)
+	go.set(MODEL, hash("Trigger 1"), true)
 end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.input = vmath.vector3()
-	run()
+	self.angle = 0
+	rive.play_state_machine(MODEL, "State Machine 1")
 end
 
 function update(self, dt)
-	local pos = go.get_position()
-	pos = pos + self.input * self.speed * dt
-	if pos.x < 100 then
-		pos.x = 100
-	elseif pos.x > 540 then
-		pos.x = 540
+	self.angle = self.angle + self.input.x * 180 * dt
+	if self.angle > 90 then
+		self.angle = 90
+	elseif self.angle < 0 then
+		self.angle = 0
 	end
-	go.set_position(pos)
+	go.set(MODEL, hash("Number 1"), self.angle)
 end
 
 function on_message(self, message_id, message, sender)
@@ -62,7 +58,7 @@ function on_input(self, action_id, action)
 		self.input.x = action.value
 	elseif action_id == SHOOT then
 		if action.released then
-			shoot()
+			shoot(self)
 		end
 	elseif action_id == PROFILER then
 		if action.released then
