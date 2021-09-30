@@ -1,6 +1,6 @@
 [project]
-title = RiveShmup
 dependencies#0 = https://github.com/defold/extension-rive/archive/refs/heads/main.zip
+title = RiveGame
 
 [bootstrap]
 main_collection = /game/game.collectionc
