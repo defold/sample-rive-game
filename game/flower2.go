@@ -73,6 +73,7 @@ embedded_components {
   "material: \"/defold-rive/assets/rivemodel.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   "default_state_machine: \"\"\n"
+  "create_go_bones: false\n"
   ""
   position {
     x: 0.0
