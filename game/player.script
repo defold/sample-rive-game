@@ -45,7 +45,8 @@ function on_message(self, message_id, message, sender)
 		if message.other_group == hash("flower") then
 			msg.post(".", "disable")
 			timer.delay(2, false, function()
-				sys.reboot()
+				msg.post(".", "enable")
+				rive.play_state_machine(MODEL, "State Machine 1")
 			end)
 		end
 	end
