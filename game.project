@@ -1,6 +1,6 @@
 [project]
 title = RiveGame
-dependencies#0 = https://github.com/defold/extension-rive/archive/refs/tags/2.1.0.zip
+dependencies#0 = https://github.com/defold/extension-rive/archive/refs/tags/3.0.0.zip
 
 [bootstrap]
 main_collection = /game/game.collectionc
@@ -15,6 +15,8 @@ repeat_interval = 0.0
 [display]
 width = 640
 height = 1136
+high_dpi = 0
+samples = 4
 
 [physics]
 scale = 0.02
@@ -36,7 +38,4 @@ clear_color_red = 0.106
 clear_color_green = 0.133
 clear_color_blue = 0.196
 clear_color_alpha = 1.0
-
-[native_extension]
-app_manifest = /game.appmanifest
 
