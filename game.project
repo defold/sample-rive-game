@@ -1,6 +1,6 @@
 [project]
 title = RiveGame
-dependencies#0 = https://github.com/defold/extension-rive/archive/refs/tags/3.0.0.zip
+dependencies#0 = https://github.com/defold/extension-rive/archive/refs/tags/4.0.0.zip
 
 [bootstrap]
 main_collection = /game/game.collectionc
