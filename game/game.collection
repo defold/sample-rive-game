@@ -4,7 +4,7 @@ instances {
   prototype: "/game/player.go"
   position {
     x: 320.0
-    y: 946.0
+    y: 814.0
     z: 1.0
   }
   scale3 {
